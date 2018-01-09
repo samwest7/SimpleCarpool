@@ -32,7 +32,7 @@ export default class CarCard extends React.Component {
           actAsExpander={true}
           showExpandableButton={true}
         />
-        <CardTitle title="Card title" subtitle="Card subtitle" expandable={true} />
+        <CardTitle title="Card title" subtitle={this.props.seats} expandable={true} />
         <CardText expandable={true}>
           Map passengers here..
         </CardText>
