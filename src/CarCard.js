@@ -26,15 +26,15 @@ export default class CarCard extends React.Component {
     return (
       <Card className='App-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
         <CardHeader
-          title="Example Car"
-          subtitle="3 Seats Available"
+          title= {this.props.driver}
+          subtitle= {this.state.seats}
           avatar={Avatar}
           actAsExpander={true}
           showExpandableButton={true}
         />
         <CardTitle title="Card title" subtitle="Card subtitle" expandable={true} />
         <CardText expandable={true}>
-          Contents of the Card
+          Map passengers here..
         </CardText>
         <CardActions>
           {/*  Put some card actions here..*/}
