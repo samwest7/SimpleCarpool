@@ -10,22 +10,41 @@ import TextField from 'material-ui/TextField';
 
 class App extends Component {
 
-  handleAddCar = () => {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      cars: [],
+      newName: "",
+    };
   }
+  onChange = ({ target: { name, value }}) => this.setState({ [name]: value })
+
+  handleAddCar = () => {
+    this.setState({cars: [...this.state.cars, {driver: 'Chels', seats: 2, passengers: ["sam"]}]})
+  }
+
+  renderCars = (cars) => (
+    <CarCard className="App-card"/>
+  );
 
   render() {
     return (
       <div>
-        <div>
+        <h1>Car Pooler</h1>
+        {/* <div>
           <CarCard className="App-card"/>
-        </div>
+        </div> */}
 
         {/* ADD A CAR FORM */}
+        {this.state.cars.map((car, i) => {
+          return(<h1 key={i}> Car {i} </h1>);
+        })}
         <div >
           <Card className="App-card">
             <CardTitle title="Add a Car" />
             <TextField
+              name= "NewName"
+              value={this.state.NewName}
               hintText="Hint Text"
               floatingLabelText="Fixed Floating Label Text"
               floatingLabelFixed={true}
