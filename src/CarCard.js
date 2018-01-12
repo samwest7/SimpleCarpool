@@ -24,17 +24,18 @@ export default class CarCard extends React.Component {
 
   render() {
     return (
-      <Card className='App-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
+      <Card className='Car-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
         <CardHeader
-          title= {this.props.driver}
+          title= {this.props.driver + "'s car"}
           subtitle= {this.state.seats}
           avatar={Avatar}
           actAsExpander={true}
           showExpandableButton={true}
         />
-        <CardTitle title="Card title" subtitle={this.props.seats} expandable={true} />
+        {/* <CardTitle subtitle={this.props.seats.length} expandable={true} /> */}
         <CardText expandable={true}>
-          Map passengers here..
+          <h3>Passengers:</h3>
+          {this.props.passengers.map((passenger, i) => (<p>{passenger}</p>))}
         </CardText>
         <CardActions>
           {/*  Put some card actions here..*/}
